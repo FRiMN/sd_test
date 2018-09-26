@@ -1,0 +1,18 @@
+<style>
+    textarea {
+        width: 48%;
+        min-height: 30em;
+    }
+</style>
+
+<h1>Test</h1>
+
+<textarea id="urls_log">
+{% for res in results %}{{ res.executed_at|date:'d-m-Y H:i:s' }}: {{ res.url.url }} [{% if res.fail %}FAIL{% else %}OK{% endif %}]
+{% endfor %}
+</textarea>
+
+<textarea id="retrieve_data">
+{% for res in results %}{{ res.url.url }} - title:{{ res.title }}, header:{{ res.header }}, charset:{{ res.charset }}
+{% endfor %}
+</textarea>
